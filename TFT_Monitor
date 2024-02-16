@@ -1,0 +1,32 @@
+
+#include <WiFi.h>
+
+#include <Adafruit_GFX.h>
+#include <Adafruit_ILI9341.h>
+const char* ssid = "we21";//type your ssid
+const char* password = "95603081";//type your password
+
+#define BTN_PIN 5
+#define TFT_DC 2
+#define TFT_CS 15
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
+
+void setup() {
+  pinMode(BTN_PIN, INPUT_PULLUP);
+
+  WiFi.begin(ssid, password, 6);
+
+  tft.begin();
+  tft.setRotation(1);
+
+  tft.setTextColor(ILI9341_GREEN);
+  tft.setTextSize(5);
+ tft.print("SSAFR");
+  delay(100);
+
+
+}
+
+void loop() {
+  
+}
